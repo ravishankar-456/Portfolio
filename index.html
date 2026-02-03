@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravishankar | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --accent: #0ea5e9;
+            --muted: #6b7280;
+            --border: #d1d5db;
+            --max: 1100px;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #111;
+        }
+
+        a {
+            text-decoration: none;
+            color: #111;
+        }
+
+        section {
+            max-width: var(--max);
+            margin: auto;
+            padding: 70px 8vw;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 8vw;
+            margin-right: -7.5vw;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 99;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        nav .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav .links a {
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        nav .links a:hover {
+            color: var(--primary);
+        }
+
+        nav .links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            border-radius: 50px;
+            transition: 0.3s ease;
+        }
+
+        nav .links a:hover::after {
+            width: 100%;
+        }
+
+        @media(max-width: 700px) {
+            nav .links {
+                gap: 1rem;
+            }
+
+            nav .links a {
+                font-size: .9rem;
+            }
+        }
+
+        #home {
+            text-align: center;
+            padding-top: 130px;
+            padding-bottom: 80px;
+        }
+
+        #home p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-role {
+            color: var(--muted);
+            margin-top: 10px;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        #home p:last-of-type {
+            color: var(--muted);
+            max-width: 680px;
+            margin: auto;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 5px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 35px;
+            border: 1px solid var(--border);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: #fff;
+            box-shadow: 0px 5px 15px rgba(0, 102, 255, 0.25);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background: #eef4ff;
+        }
+
+        @media(max-width: 700px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-role {
+                font-size: 1.1rem;
+            }
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 100px;
+            border: 4px solid #e5e7eb;
+            margin-bottom: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.10);
+        }
+
+        .about-info li {
+            margin-bottom: 6px;
+        }
+
+        .about-info,
+        .about-list {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .about-right p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .about-right h3 {
+            margin: 12px 0 8px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        @media(max-width: 900px) {
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-img {
+                margin: auto;
+            }
+        }
+
+        #skills {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        #skills h2 {
+            font-size: 2.3rem;
+            margin-bottom: 30px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .chip {
+            background: #e7efff;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: 0.3s ease;
+        }
+
+        .chip:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #projects {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .education-sec {
+            margin-top: 50px;
+        }
+
+        .education-sec h2 {
+            font-size: 28px;
+            margin-bottom: 22px;
+            color: #0a0a0a;
+        }
+
+        .edu-box {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .edu-item {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #007bff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .edu-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.25);
+            border-left-color: #0056c7;
+        }
+
+        .edu-item h3 {
+            margin: 0 0 10px 0;
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        .edu-item p {
+            margin: 5px 0;
+            font-size: 15px;
+            color: #444;
+        }
+
+        #projects h2 {
+            font-size: 2.3rem;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 22px;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin: 10px 0 12px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 7px;
+            margin-bottom: 12px;
+        }
+
+        .project-tags span {
+            background: #e7f0ff;
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--primary);
+        }
+
+        .card-links a {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+            transition: 0.3s;
+            margin-right: 20px;
+        }
+
+        .card-links a:hover {
+            color: #0ea5e9;
+            text-decoration: underline;
+        }
+
+        #contact {
+            padding-top: 90px;
+            padding-bottom: 90px;
+        }
+
+        #contact h2 {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 25px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            padding: 35px;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            font-size: 1rem;
+            color: #111;
+            background: #f9fbff;
+            transition: 0.2s ease;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
+            background: #fff;
+        }
+
+        .btn-contact {
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background: #111827;
+            color: #d1d5db;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #60a5fa;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.25s ease;
+        }
+
+        .footer-links a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        @media(max-width:700px) {
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Ravishankar</div>
+        <div class="links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <section id="home">
+        <p class="hero-description">
+        <p class="hero-description-alt">
+        <h1 class="hero-title">Hi, I'm <span>Ravishankar.P</span></h1>
+        <h2 class="hero-role">Frontend Developer & UI/UX Designer</h2>
+        <p class="hero-description">
+            I create clean, responsive and user-friendly digital experiences.
+        </p>
+        <div class="hero-btns">
+            <a href="#contact" class="btn btn-primary">Hire Me</a>
+            <a href="#" class="btn btn-outline">Download Resume</a>
+        </div>
+    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-wrapper">
+            <div class="about-left">
+                <img src="IMG_6695.JPG" alt="Ravishankar Photo" class="profile-img">
+                <ul class="about-info">
+                    <li><strong>Name:</strong> Ravishankar.P</li>
+                    <li><strong>Role:</strong> Frontend Developer & UI/UX Designer</li>
+                    <li><strong>Email:</strong> ravishankargokul456@gmail.com</li>
+                    <li><strong>Phone:</strong> +91 8870966317</li>
+                    <li><strong>Location:</strong> Salem,India</li>
+                </ul>
+            </div>
+            <div class="about-right">
+                <h3>Who I Am</h3>
+                <p>
+                    I’m a passionate frontend developer and UI/UX designer constantly exploring modern technologies and
+                    design strategies. I love transforming ideas into visually appealing and interactive web
+                    experiences.
+                </p>
+                <h3>What I Can Do</h3>
+                <ul class="about-list">
+                    <li>Design intuitive UI layouts and prototypes using Figma & Photoshop</li>
+                    <li>Develop responsive websites using HTML, CSS, JavaScript, React, Bootstrap</li>
+                    <li>Work with WordPress for web customization</li>
+                    <li>Convert Figma designs into real usable live UI</li>
+                    <li>Actively listen, understand requirements & solve UI problems</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="education" class="education-sec">
+        <h2>Education</h2>
+        <div class="edu-box">
+            <div class="edu-item">
+                <h3>B.Sc Computer Science</h3>
+                <p><strong>College:</strong>Muthayammal College of Arts and Science, Rasipuram</p>
+                <p><strong>Year:</strong> 2022 – 2025</p>
+                <p><strong>Relevant Subjects:</strong> Web Development, UI/UX Design, DBMS</p>
+            </div>
+            <div class="edu-item">
+                <h3>Higher Secondary Education</h3>
+                <p><strong>School:</strong> Rasi Matric Higher Secondary School</p>
+                <p><strong>Year:</strong> 2020 – 2022</p>
+                <p><strong>Group:</strong> Computer Science</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-alt">
+        <h2>Skills & Tools</h2>
+        <div class="chips">
+            <span class="chip">HTML5</span>
+            <span class="chip">CSS3</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">React</span>
+            <span class="chip">Bootstrap</span>
+            <span class="chip">Tailwind CSS</span>
+            <span class="chip">Figma</span>
+            <span class="chip">Photoshop</span>
+            <span class="chip">WordPress</span>
+            <span class="chip">UI/UX Design</span>
+            <span class="chip">Git & GitHub</span>
+            <span class="chip">Active Listener</span>
+        </div>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="card">
+            <h3>Travel Ease website</h3>
+            <p>Responsive travel website with booking features and destination information.</p>
+            <div class="project-tags"><span>HTML</span><span>CSS</span></div>
+            <div class="card-links">
+                <a href="https://ravishankar-456.github.io/Travel---Ease/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                <a href="https://github.com/ravishankar-456/Travel---Ease.git" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>QuizMaster – Quiz App</h3>
+            <p>Interactive quiz application with score tracking and categories.</p>
+            <div class="project-tags"><span>React</span><span>CSS</span></div>
+            <div class="card-links">
+                <a href="https://quiz-application-eight-omega.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                <a href="https://github.com/ravishankar-456/Quiz-application.git"target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Space Builders Construction Site</h3>
+            <p>A responsive Construction company website with modern design and features.</p>
+            <div class="project-tags"><span>HTML</span><span>CSS</span></div>
+            <div class="card-links">
+                <a href="https://ravishankar-456.github.io/Space-Builders-/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                <a href="https://github.com/ravishankar-456/Space-Builders-.git" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section-alt">
+        <h2>Contact Me</h2>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message Sent!');">
+            <div class="input-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="input-group">
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-contact">Send Message</button>
+        </form>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 Ravishankar • Frontend Developer & UI/UX Designer</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/ravishankar-p-60a59a37b" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/ravishankar-456" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="#home">Back to Top ↑</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
